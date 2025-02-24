@@ -1,9 +1,5 @@
-function App() {
-  return (
-    <div>
-      <h1>Main Page</h1>
-    </div>
-  );
-}
+import { Experiment } from '@/components/Experiment';
 
-export default App;
+export function App() {
+  return <Experiment />;
+}

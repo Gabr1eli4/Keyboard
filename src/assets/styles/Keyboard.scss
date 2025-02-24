@@ -1,0 +1,14 @@
+.keyboard {
+  display: flex;
+  gap: 2px;
+
+  .key {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 2px;
+
+    &.select {
+      border-color: green;
+    }
+  }
+}
