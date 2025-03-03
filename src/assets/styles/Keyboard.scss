@@ -1,14 +1,42 @@
 .keyboard {
-  display: flex;
-  gap: 2px;
-
-  .key {
-    padding: 10px;
-    border: 1px solid black;
+  .num_pad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 20px;
     border-radius: 2px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 320px;
+    margin: 20px auto;
 
-    &.select {
-      border-color: green;
+    .num_btn.zero {
+      grid-column: span 3;
+      aspect-ratio: unset;
+      width: auto;
     }
+  }
+
+  .key_pad {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+  }
+
+  .key_btn,
+  .num_btn {
+    padding: 20px;
+
+    border: none;
+    border-radius: 12px;
+    background: #ffffff;
+
+    font-size: 24px;
+    font-weight: 500;
+    color: #333;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    aspect-ratio: 1;
   }
 }
