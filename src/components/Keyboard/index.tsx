@@ -1,11 +1,16 @@
-import { Key } from '@/components/Key';
+import type { TKeyboardTypes } from '@/types/experiment';
 
-export function Keyboard() {
+import { KEYBOARDS } from '@/types/experiment';
+import { KeyPad } from '@/components/KeyPad';
+import { NumPad } from '@/components/NumPad';
+
+interface IKeyboardProps {
+  keyboardType: TKeyboardTypes;
+  sequence?: Array<string>;
+}
+
+export function Keyboard({ keyboardType }: IKeyboardProps) {
   return (
-    <div className="keyboard">
-      {Array.from({ length: 10 }).map((_, index) => (
-        <Key value={index} />
-      ))}
-    </div>
+    <div className="keyboard">{keyboardType === KEYBOARDS.KEY_PAD ? <KeyPad /> : <NumPad />}</div>
   );
 }

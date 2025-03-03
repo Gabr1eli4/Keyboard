@@ -1,5 +1,5 @@
 interface IKeyProps {
-  value: number;
+  value: string;
 }
 
 export function Key({ value }: IKeyProps) {

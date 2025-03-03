@@ -2,9 +2,9 @@ import { Key } from '@/components/Key';
 
 const KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
 
-export function NumPad() {
+export function KeyPad() {
   return (
-    <div className="num_pad">
+    <div className="key_pad">
       {KEYS.map((value) => (
         <Key value={value} />
       ))}
