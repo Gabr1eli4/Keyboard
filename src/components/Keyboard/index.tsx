@@ -11,6 +11,12 @@ interface IKeyboardProps {
 
 export function Keyboard({ keyboardType }: IKeyboardProps) {
   return (
-    <div className="keyboard">{keyboardType === KEYBOARDS.KEY_PAD ? <KeyPad /> : <NumPad />}</div>
+    <div className="keyboard">
+      {keyboardType === KEYBOARDS.KEY_PAD ? (
+        <KeyPad type={keyboardType} />
+      ) : (
+        <NumPad type={keyboardType} />
+      )}
+    </div>
   );
 }
