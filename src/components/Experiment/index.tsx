@@ -26,7 +26,7 @@ export function Experiment({ keyboardType, isRandom }: IExperimentProps) {
   return (
     <div>
       <h1>Keyboard (1)</h1>
-      <Keyboard keyboardType={keyboardType} sequence={sequence} />
+      <Keyboard type={keyboardType} sequence={sequence} />
       <button onClick={handleStart}>Запустить</button>
     </div>
   );

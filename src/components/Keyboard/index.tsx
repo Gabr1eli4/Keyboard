@@ -5,18 +5,14 @@ import { KeyPad } from '@/components/KeyPad';
 import { NumPad } from '@/components/NumPad';
 
 interface IKeyboardProps {
-  keyboardType: TKeyboardTypes;
+  type: TKeyboardTypes;
   sequence?: Array<string>;
 }
 
-export function Keyboard({ keyboardType }: IKeyboardProps) {
+export function Keyboard({ type }: IKeyboardProps) {
   return (
     <div className="keyboard">
-      {keyboardType === KEYBOARDS.KEY_PAD ? (
-        <KeyPad type={keyboardType} />
-      ) : (
-        <NumPad type={keyboardType} />
-      )}
+      {type === KEYBOARDS.KEY_PAD ? <KeyPad type={type} /> : <NumPad type={type} />}
     </div>
   );
 }
