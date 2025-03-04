@@ -6,6 +6,7 @@ interface IExperimentStore {
   actions: {
     setCurrentDigit: (digit: string | undefined) => void;
     setSequence: (sequence: Array<string>) => void;
+    clearCurrentDigit: () => void;
   };
 }
 
@@ -15,6 +16,7 @@ export const useExperimentStore = create<IExperimentStore>()((set) => ({
   actions: {
     setSequence: (sequence) => set({ sequence }),
     setCurrentDigit: (currentDigit) => set({ currentDigit }),
+    clearCurrentDigit: () => set({ currentDigit: undefined }),
   },
 }));
 

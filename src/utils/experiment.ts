@@ -13,13 +13,21 @@ export function waitForSpecificKey(targetKey: string) {
   });
 }
 
+const sleep = (timeout: number) => new Promise((resolve) => setTimeout(resolve, timeout));
+
 export async function handleDynamicSequence(sequence: Array<string>) {
+  const { setCurrentDigit, clearCurrentDigit } = useExperimentStore.getState().actions;
   for (const [index, key] of sequence.entries()) {
-    useExperimentStore.getState().actions.setCurrentDigit(key);
+    setCurrentDigit(key);
+    const startTime = new Date();
     const pressedKey = await waitForSpecificKey(key);
+    const endTime = new Date();
+    const diffTime = endTime.getTime() - startTime.getTime();
+    console.log('diffTime ', diffTime);
+    clearCurrentDigit();
     console.log(`Шаг ${index + 1}: Нажата ${pressedKey}`);
-    // Добавьте свою логику обработки здесь
+    await sleep(1000);
   }
-  useExperimentStore.getState().actions.setCurrentDigit(undefined);
+  clearCurrentDigit();
   console.log('Все клавиши введены правильно!');
 }
