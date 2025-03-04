@@ -22,7 +22,7 @@ export function Experiment({ keyboardType, isRandom }: IExperimentProps) {
     for (const [index, key] of sequence.entries()) {
       setCurrentDigit(key);
       const startTime = new Date();
-      const pressedKey = (await waitForSpecificKey(key)) as string;
+      const pressedKey = await waitForSpecificKey(key);
       const endTime = new Date();
       const diffTime = endTime.getTime() - startTime.getTime();
       const chartData = { name: (index + 1).toString(), time: diffTime };
