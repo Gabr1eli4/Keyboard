@@ -38,5 +38,9 @@
     transition: all 0.2s ease;
 
     aspect-ratio: 1;
+
+    &.selected {
+      background-color: red;
+    }
   }
 }

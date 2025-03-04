@@ -6,7 +6,6 @@ import { NumPad } from '@/components/NumPad';
 
 interface IKeyboardProps {
   type: TKeyboardTypes;
-  sequence?: Array<string>;
 }
 
 export function Keyboard({ type }: IKeyboardProps) {

@@ -1,3 +1,5 @@
+import { useExperimentStore } from '@/store/experiment';
+
 // Функция ожидания конкретной клавиши
 export function waitForSpecificKey(targetKey: string) {
   return new Promise((resolve) => {
@@ -13,9 +15,11 @@ export function waitForSpecificKey(targetKey: string) {
 
 export async function handleDynamicSequence(sequence: Array<string>) {
   for (const [index, key] of sequence.entries()) {
+    useExperimentStore.getState().actions.setCurrentDigit(key);
     const pressedKey = await waitForSpecificKey(key);
     console.log(`Шаг ${index + 1}: Нажата ${pressedKey}`);
     // Добавьте свою логику обработки здесь
   }
+  useExperimentStore.getState().actions.setCurrentDigit(undefined);
   console.log('Все клавиши введены правильно!');
 }
