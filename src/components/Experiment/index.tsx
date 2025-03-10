@@ -21,11 +21,13 @@ export function Experiment({ keyboardType, isRandom }: IExperimentProps) {
     clearChartData();
     for (const [index, key] of sequence.entries()) {
       setCurrentDigit(key);
-      const startTime = new Date();
+      const startTime = Date.now();
       const pressedKey = await waitForSpecificKey(key);
-      const endTime = new Date();
-      const diffTime = endTime.getTime() - startTime.getTime();
-      const chartData = { name: (index + 1).toString(), time: diffTime };
+      const endTime = Date.now();
+      const diffTime = endTime - startTime;
+      const time = diffTime / (60 * 60);
+      const spm = Math.round((index + 1) / time);
+      const chartData = { name: (index + 1).toString(), time: spm };
 
       appendChartData(chartData);
       clearCurrentDigit();
