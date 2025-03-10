@@ -6,7 +6,18 @@ interface INumPadProps {
   type: TKeyboardTypes;
 }
 
-const KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+const KEYS = [
+  'Numpad1',
+  'Numpad2',
+  'Numpad3',
+  'Numpad4',
+  'Numpad5',
+  'Numpad6',
+  'Numpad7',
+  'Numpad8',
+  'Numpad9',
+  'Numpad0',
+];
 
 export function NumPad({ type }: INumPadProps) {
   return (

@@ -9,6 +9,7 @@ import { Chart } from '@/components/Chart';
 interface IExperimentProps {
   keyboardType: TKeyboardTypes;
   isRandom?: boolean;
+  title: string;
 }
 
 const DEFINITE_VALUE = 5;
@@ -40,8 +41,8 @@ export function Experiment({ keyboardType, isRandom }: IExperimentProps) {
 
   const handleStart = async () => {
     const _sequence = isRandom
-      ? generateNumberSequence(10)
-      : generateDefiniteSequence(DEFINITE_VALUE);
+      ? generateNumberSequence(keyboardType, 10)
+      : generateDefiniteSequence(keyboardType, DEFINITE_VALUE);
 
     await handleDynamicSequence(_sequence);
   };

@@ -18,5 +18,5 @@ export function Key({ value, type }: IKeyProps) {
     selected: value === currentDigit,
   });
 
-  return <div className={className}>{value}</div>;
+  return <div className={className}>{value.replace(/[^0-9]/g, '')}</div>;
 }
