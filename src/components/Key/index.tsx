@@ -12,9 +12,9 @@ export function Key({ value, type }: IKeyProps) {
   const currentDigit = useCurrentDigit();
 
   const className = classNames({
-    key_btn: type === 'KEY_PAD',
-    num_btn: type === 'NUM_PAD',
-    zero: type === 'NUM_PAD' && value === '0',
+    key_btn: type === 'KEY_PAD' || (type === 'BOTH' && value.includes('Digit')),
+    num_btn: type === 'NUM_PAD' || (type === 'BOTH' && value.includes('Numpad')),
+    zero: (type === 'NUM_PAD' || type === 'BOTH') && value === 'Numpad0',
     selected: value === currentDigit,
   });
 

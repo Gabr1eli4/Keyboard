@@ -7,16 +7,15 @@ interface INumPadProps {
 }
 
 const KEYS = [
-  'Numpad1',
-  'Numpad2',
-  'Numpad3',
-  'Numpad4',
-  'Numpad5',
-  'Numpad6',
   'Numpad7',
   'Numpad8',
   'Numpad9',
-  'Numpad0',
+  'Numpad4',
+  'Numpad5',
+  'Numpad6',
+  'Numpad1',
+  'Numpad2',
+  'Numpad3',
 ];
 
 export function NumPad({ type }: INumPadProps) {
@@ -25,6 +24,7 @@ export function NumPad({ type }: INumPadProps) {
       {KEYS.map((value) => (
         <Key key={value} value={value} type={type} />
       ))}
+      <Key key={'Numpad0'} value={'Numpad0'} type={type} />
     </div>
   );
 }
